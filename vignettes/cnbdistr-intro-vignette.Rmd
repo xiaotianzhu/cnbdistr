@@ -31,7 +31,7 @@ $$X|_{X + Y = D} \sim \text{CNB}\left(D, r_1, r_2, \frac{p_1}{p_2}\right)$$
 
 As a special case when $p_1 = p_2$, we note that
 
-$\text{CNB}\left(D, r1, r2, \frac{p_1}{p_2}\right)$ is identical to $\text{BB}(D, r1, r2)$, whose PMF is $f(k) = \binom{D}{k}\frac{\text{B}(k + r_1, D - k + r_2)}{\text{B}(r_1, r_2)}$, where $\text{BB}$ stands for Beta Binomial distribution, and $\text{B}$ stands for Beta function.
+$\text{CNB}\left(D, r1, r2, 1\right)$ is identical to $\text{BB}(D, r1, r2)$, whose PMF is $f(k) = \binom{D}{k}\frac{\text{B}(k + r_1, D - k + r_2)}{\text{B}(r_1, r_2)}$, where $\text{BB}$ stands for Beta Binomial distribution, and $\text{B}$ stands for Beta function.
 
 Also we note the symmetry:
 
