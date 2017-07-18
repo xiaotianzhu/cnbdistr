@@ -4,7 +4,7 @@
 \alias{rcnb}
 \title{Random Number Generation from Conditional Negative Binomial}
 \usage{
-rcnb(n, D, r1, r2, lambda)
+rcnb(n, D, r1, r2, theta)
 }
 \arguments{
 \item{n}{a positive integer.}
@@ -15,7 +15,7 @@ rcnb(n, D, r1, r2, lambda)
 
 \item{r2}{a positive value.}
 
-\item{lambda}{a positive value.}
+\item{theta}{a positive value.}
 }
 \value{
 n iid draws from X|X+Y=D.
@@ -24,7 +24,7 @@ n iid draws from X|X+Y=D.
 Random number generation from the conditional distribution of X given X + Y = D,
 where X ~ NB(r1, p1) and Y ~ NB(r2, p2) are drawn from two negative binomials,
 independent of each other,
-and assuming p1/p2 = lambda.
+and assuming p1/p2 = theta.
 }
 \details{
 Need to specify full list of arguments, as default values have not been set.

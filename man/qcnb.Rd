@@ -4,7 +4,7 @@
 \alias{qcnb}
 \title{Quantile Function of Conditional Negative Binomial}
 \usage{
-qcnb(p, D, r1, r2, lambda)
+qcnb(p, D, r1, r2, theta)
 }
 \arguments{
 \item{p}{a nonempty vector of probabilities (0 <= p[i] <= 1 for all i).}
@@ -15,7 +15,7 @@ qcnb(p, D, r1, r2, lambda)
 
 \item{r2}{a positive value.}
 
-\item{lambda}{a positive value.}
+\item{theta}{a positive value.}
 }
 \value{
 A vector x such that x[i] = Inf\{x in 0:D, p[i] <= Pr(X <= x | X + Y = D)\} for all i.
@@ -24,7 +24,7 @@ A vector x such that x[i] = Inf\{x in 0:D, p[i] <= Pr(X <= x | X + Y = D)\} for 
 Quantile function of the conditional distribution of X given X + Y = D,
 where X ~ NB(r1, p1) and Y ~ NB(r2, p2) are drawn from two negative binomials,
 independent of each other,
-and assuming p1/p2 = lambda.
+and assuming p1/p2 = theta.
 }
 \details{
 Need to specify full list of arguments, as default values have not been set.

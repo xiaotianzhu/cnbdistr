@@ -4,7 +4,7 @@
 \alias{mu_cnb}
 \title{Mean of Conditional Negative Binomial}
 \usage{
-mu_cnb(D, r1, r2, lambda)
+mu_cnb(D, r1, r2, theta)
 }
 \arguments{
 \item{D}{a positive integer.}
@@ -13,7 +13,7 @@ mu_cnb(D, r1, r2, lambda)
 
 \item{r2}{a positive value.}
 
-\item{lambda}{a positive value.}
+\item{theta}{a positive value.}
 }
 \value{
 E(X | X + Y = D).
@@ -22,7 +22,7 @@ E(X | X + Y = D).
 Function calculating mean of the conditional distribution of X given X + Y = D,
 where X ~ NB(r1, p1) and Y ~ NB(r2, p2) are drawn from two negative binomials,
 independent of each other,
-and assuming p1/p2 = lambda.
+and assuming p1/p2 = theta.
 }
 \details{
 Need to specify full list of arguments, as default values have not been set.

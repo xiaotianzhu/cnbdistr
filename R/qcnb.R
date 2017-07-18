@@ -7,7 +7,7 @@
 #' Quantile function of the conditional distribution of X given X + Y = D,
 #' where X ~ NB(r1, p1) and Y ~ NB(r2, p2) are drawn from two negative binomials,
 #' independent of each other,
-#' and assuming p1/p2 = lambda.
+#' and assuming p1/p2 = theta.
 #'
 #' @details
 #' Need to specify full list of arguments, as default values have not been set.
@@ -18,7 +18,7 @@
 #' @param D a positive integer.
 #' @param r1 a positive value.
 #' @param r2 a positive value.
-#' @param lambda a positive value.
+#' @param theta a positive value.
 #'
 #' @return A vector x such that x[i] = Inf\{x in 0:D, p[i] <= Pr(X <= x | X + Y = D)\} for all i.
 #'
@@ -31,10 +31,10 @@
 #'
 #'
 #' @export
-"qcnb" <- function(p, D, r1, r2, lambda){
+"qcnb" <- function(p, D, r1, r2, theta){
 
-  if (missing(p) || missing(D) || missing(r1) || missing(r2) || missing(lambda))
-    stop("Need to specify a full set of arguments: p, D, r1, r2, lambda.")
+  if (missing(p) || missing(D) || missing(r1) || missing(r2) || missing(theta))
+    stop("Need to specify a full set of arguments: p, D, r1, r2, theta.")
 
   if (!is.numeric(D) || length(D)!=1 || !D%%1==0 || D<=0)
     stop("D needs to be a positive integer.")
@@ -48,15 +48,15 @@
   if (!is.numeric(r2) || length(r2)!=1 || r2<=0)
     stop("r2 needs to be a positive value.")
 
-  if (!is.numeric(lambda) || length(lambda)!=1 || lambda<=0)
-    stop("lambda needs to be a positive value.")
+  if (!is.numeric(theta) || length(theta)!=1 || theta<=0)
+    stop("theta needs to be a positive value.")
 
 
   return_value <- rep(0, length(p))
 
   for (i in 1:length(p)) {
 
-    if (p[i] <= dcnb(0, D, r1, r2, lambda)){
+    if (p[i] <= dcnb(0, D, r1, r2, theta)){
       return_value[i] <- 0
     } else if (p[i] == 1) {
       return_value[i] <- D
@@ -69,7 +69,7 @@
 
         tmptest <- floor((tmplower + tmpupper)/2)
 
-        if (pcnb(tmptest, D, r1, r2, lambda) < p[i]) {
+        if (pcnb(tmptest, D, r1, r2, theta) < p[i]) {
           tmplower <- tmptest
         } else {
           tmpupper <- tmptest
